@@ -1,9 +1,11 @@
 # Project Details
-[Rachel Backert](https://github.com/racbac), bac2@umbc.edu, programmer
-[Source code](https://github.com/racbac/analog-clock-game) on GitHub.
+ [Rachel Backert](https://github.com/racbac), bac2@umbc.edu, programmer.
+ 
+ [Source code](https://github.com/racbac/analog-clock-game) on GitHub.
 
 # Introduction
-This web application provides a game to help Pre-K through first grade students practice reading analog clocks, and data collection to help teachers track students’ progress.
+This web application provides a game to help Pre-K through first grade students 
+practice reading analog clocks, and data collection to help teachers track students’ progress.
 
 # Gameplay
 ## Level Design
