@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="proj1.css" >
+
+    </head>
+    <body>
+        <h1>Analog and Digital Clocks</h1>
+        
+        <p>Click <a href="https://www.mathsisfun.com/time-clocks.html" target="_blank">here</a> to learn how to tell time using clocks with hands (analog) and clocks with numbers (digital). Then come back here to practice!</p>
+        <h2>How to Play</h2>
+        <p>Type in your name and click "New Game" to start playing. Decide what time the analog clock shows, type your answer in the box, and click "Check" or press "Enter". You get three guesses for each time shown. Guess the time correctly five times to move to the next level!</p>
+        <p>The game ends when you finish all levels, when you click "End game", or when you've been playing for ten minutes.</p>
+        <div>
+            <label for="student_name">Your name: </label><input type="text" id="student_name" required>
+            <button id="start_game" >New game</button>
+            <button id="end_game" >End game</button>
+        </div>
+        <div id="game">
+            
+            <div class="wrapper"><div class="content">
+                    <canvas id="analog_clock_canvas" ></canvas>
+                </div></div>     
+            <div id="controls">
+
+                <h3 id="level">Level 1</h3>
+                <h5 id="correct_answers">Correct answers: </h5>
+                <h6 id="game_time">Minutes left: </h6>
+                <label for="student">Type your guess below<br>(as h:mm or h mm)</label>
+
+                <input type="text" id="student" placeholder="hh:mm" pattern="[1-12]:[0-59]:[0-59]"  disabled>
+                <p id="grade"></p>
+                <button id="check_answer" type="submit" disabled>Check</button>
+
+            </div>
+        </div>
+
+        <button id="download">Download results</button>
+
+        <script src="Analog_clock.js"></script> 
+        <script src="Game.js"></script>
+        <script src="proj1.js"></script>
+
+    </body>
+</html>
