@@ -1,3 +1,9 @@
+@media(max-width: 350px) {
+    body {
+        font-size: 0.8em;
+    }
+}
+
 body {
     padding: 15px;
 }
