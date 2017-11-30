@@ -176,24 +176,25 @@ Analog_clock.prototype.draw_hands = function() {
 // Input: difficulty of time
 // Output: Sets the clock's stored time to a random time of varying difficulty to read: on the hour, half hour, quarter hour, five minutes, or minute
 Analog_clock.prototype.random_time = function(level) {
+    var min;
     switch (level) {
         case 1:
-            this.time = new Date("1 " + rand(1,12) + ":00" + ":" + rand(0,59));
+            min = 0;
             break;
         case 2:
-            this.time = new Date("1 " + rand(1,12) + ":" + (30 * rand(0,1)) + ":" + rand(0,59));
+            min = 30 * rand(0,1);
             break;
         case 3:
-            this.time = new Date("1 " + rand(1,12) + ":" + (15 * rand(0,3)) + ":" + rand(0,59));
+            min = 15 * rand(0,3);
             break;
         case 4:
-            this.time = new Date("1 " + rand(1,12) + ":" + (5 * rand(0,11)) + ":" + rand(0,59));
+            min = 5 * rand(0,11);
             break;
         default:
-            this.time = new Date("1 " + rand(1,12) + ":" + rand(0,59) + ":" + rand(0,59));
+            min = rand(0,59);
             break;
     }
-        
+    this.time = new Date(2000,1,1,rand(1,12),min,rand(0,59));
     this.draw_analog(this.time);
 }
 

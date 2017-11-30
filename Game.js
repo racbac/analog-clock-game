@@ -41,7 +41,8 @@ Clock_game.prototype.start_round = function() {
 Clock_game.prototype.process_answer = function(ans) {
     // store time guessing and the guess
     this.rounds[this.rounds.length - 1].times.push(Math.abs(new Date() - this.ans_timer) / 1000);
-    var student_ans = new Date("1 " + ans.replace(" ", ":"));
+    var colonPos = (ans.indexOf(":") == -1 ? ans.indexOf(" ") : ans.indexOf(":"));
+    var student_ans = new Date(2000,1,1,ans.slice(0,colonPos),ans.slice(colonPos + 1, colonPos + 3));
     this.rounds[this.rounds.length - 1].guesses.push(student_ans.toLocaleTimeString().substring(0,this.clock.time.toLocaleTimeString().indexOf(":",3)));
     
     // if correct
