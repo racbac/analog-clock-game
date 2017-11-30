@@ -75,7 +75,7 @@ Analog_clock.prototype.draw_face = function() {
 Analog_clock.prototype.draw_hr_nums = function() {
     // major numbers
     var radian;
-    this.canvas.textAlign = "center"; this.canvas.textBaseline = "middle"; this.canvas.font = "1.2em 'Comic Sans MS' sans-serif";
+    this.canvas.textAlign = "center"; this.canvas.textBaseline = "middle"; this.canvas.font = "1.2em 'Comic Sans MS', sans-serif";
     for(var i = 1; i < 13; i++) {
         radian = Math.PI * (i / 6 - 1 / 2);
         this.canvas.fillText(i.toString(), this.radius * 0.67 * Math.cos(radian), this.radius * 0.67 * Math.sin(radian));
@@ -88,7 +88,7 @@ Analog_clock.prototype.draw_hr_nums = function() {
 Analog_clock.prototype.draw_major_nums = function() {
     // minor numbers
     this.canvas.textAlign = "center"; this.canvas.textBaseline = "middle";  this.canvas.fillStyle = "black";
-    this.canvas.font = "bold 0.9em 'Comic Sans MS' sans-serif"; 
+    this.canvas.font = "bold 0.9em 'Comic Sans MS', sans-serif"; 
     for(var i = 0; i < 12; i++) {
         radian = Math.PI * (i / 6 - 1 / 2);
         this.canvas.fillText((i * 5).toString(), this.radius * 0.92 * Math.cos(radian), this.radius * 0.92 * Math.sin(radian));
@@ -101,7 +101,7 @@ Analog_clock.prototype.draw_major_nums = function() {
 Analog_clock.prototype.draw_minor_nums = function() {
     // minor numbers
     this.canvas.textAlign = "center"; this.canvas.textBaseline = "middle";  this.canvas.fillStyle = "black";
-    this.canvas.font = "bold 0.7em 'Comic Sans MS' sans-serif"; 
+    this.canvas.font = "bold 0.7em 'Comic Sans MS', sans-serif"; 
     for(var i = 0; i < 60; i++) {
         radian = Math.PI * (i / 30 - 1 / 2);
         this.canvas.fillText((i).toString(), this.radius * 0.92 * Math.cos(radian), this.radius * 0.92 * Math.sin(radian));
