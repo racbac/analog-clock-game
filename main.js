@@ -31,7 +31,7 @@ function time_game(time_limit) {
     countdown_timeout = setTimeout(function() {
         clearInterval(countdown_interval);
         alert("You've been playing for " + time_limit + " minutes. It's someone else's turn!");
-        $("#end_game_btn").click();
+        $("#end_game").click();
     }, time_limit * 60000 + 1000);
 }
     
@@ -46,31 +46,33 @@ function update_info() {
     if (correct == 1) {  // correct answer
         $("#grade").text("Correct");
         $("#grade").css("color", "green");
-        $("#student").attr("placeholder", "hh:mm");
+        $("#student").attr("placeholder", "h:mm");
     
     }  else if (correct == 0) {  // incorrect answer, same round
         $("#grade").text("Incorrect"); 
         $("#grade").css("color", "red"); 
-        $("#student").attr("placeholder", student_ans.value);
+        $("#student").attr("placeholder", $("#student").val());
     
     } else if (correct == 2) {  // game finished
         $("#grade").css("color", "green");
         $("#grade").text("You finished the game! Well done!");
         setTimeout(function() {
-            end_game_btn.click();
+            $("#end_game").click();
         }, 1500);
         
         return;
             
     } else {  // incorrect answer, next round
-        $("#grade").html("Incorrect.<br>The time is " + game1.clock.time.toLocaleTimeString().substr(0, 8) + "<br>Click the clock to continue");
+        $("#grade").text("Incorrect")
+        $("<p>The time is " + game1.clock.time.toLocaleTimeString().substr(0, 8) + "<br>Click the clock to continue</p>").hide().insertAfter($("#grade")).toggle(1000);
         
-        $("#student_ans").prop("disabled", true); $("#check_answer").prop("disabled", true);
+        $("#student").prop("disabled", true); $("#check_answer").prop("disabled", true);
         $("#analog_clock_canvas").click(function() {
             game1.start_round();
-            $("#student_ans").prop("disabled", false); $("#check_answer").prop("disabled", false);
-            $("#grade").text(""); $("#student_ans").text(""); student_ans.placeholder = "hh:mm";
-            $("#student_ans").focus();
+            $("#student").prop("disabled", false); $("#check_answer").prop("disabled", false);
+            $("#grade").text(""); $("#student").text(""); $("#student").attr("placeholder", "h:mm");
+            $("#grade + p").remove();
+            $("#student").focus();
             $("#analog_clock_canvas").off("click");
         });
     }
