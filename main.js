@@ -40,7 +40,7 @@ function time_game(time_limit) {
 // Input: 
 // Output: Translates the Game's evaluation of the student's answer into feedback on the HTML page. Displays in HTML elements the number of correct answers so far, the current level, whether the latest answer was correct or incorrect, and the correct answer (if needed). 
 function update_info() {
-    var correct = game1.process_answer(student_ans.value);
+    var correct = game1.process_answer($("#student").val());
     $("#correct_answers").text("Correct answers: " + game1.total_correct);
 
     if (correct == 1) {  // correct answer

@@ -90,31 +90,24 @@ Clock_game.prototype.export_csv = function() {
 // Input:
 // Output: Returns a table HTML element, with each row representing a Round in the Game. Does not have column labels. Use with appendChild
 Clock_game.prototype.export_table = function() {
-    var table = document.createElement("table");
-    var row;
+    var $table = $("<table>");
+    var $row;
 
     this.rounds.forEach(function(round) {
-        row = document.createElement("tr");
-        table.appendChild(row);
-
-        row.appendChild(document.createElement("td")); row.lastChild.appendChild(document.createTextNode(this.student_name));
-        row.appendChild(document.createElement("td")); row.lastChild.appendChild(document.createTextNode(round.level));
-        row.appendChild(document.createElement("td")); row.lastChild.appendChild(document.createTextNode(round.answer));
+        $row = $("<tr><td>" + this.student_name + "</td>" + "<td>" + round.level + "</td>" + "<td>" + round.answer + "</td></tr>");
 
         for (var i = 0; i < round.guesses.length; i++) {
-            row.appendChild(document.createElement("td")); row.lastChild.appendChild(document.createTextNode(round.guesses[i]));
-            row.appendChild(document.createElement("td")); row.lastChild.appendChild(document.createTextNode(round.times[i].toFixed(1)));
+            $row.append("<td>" + round.guesses[i] + "</td>" + "<td>" + round.times[i].toFixed(1) + "</td>");
         }
     }, this);
     
-    return table;
+    return $table;
 };
 
 // export_table_str
 // Input:
 // Output: Returns a string that is the HTML code for a table representing each Round in the Game. Use with innerHTML or document.write
 Clock_game.prototype.export_table_str = function() {
-    debugger;
     var table_str = "";
     this.rounds.forEach(function(round) {
         table_str += "<tr><td>" + this.student_name + "</td><td>" + round.level + "</td><td>" + round.answer + "</td>";
