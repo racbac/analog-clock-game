@@ -73,11 +73,6 @@ body {
     animation-duration: 0.5s;
 }
 
-@keyframes pulse {
-    50% {font-size: 1.2em; }
-    100% {font-size: 1em;}
-}
-
 #download {
     position: absolute;
     right: 0px;
